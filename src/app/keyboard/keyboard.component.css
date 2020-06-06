@@ -1,0 +1,56 @@
+#keyboard {
+    display: grid;
+    gap: 20px 30px;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 30px 79px 60px;
+}
+#keyboard .keyboard-button:nth-child(10) {
+    grid-column-start: 2;
+}
+
+.keyboard-button {
+    width: 72px;
+    height: 72px;
+    border: 1px solid rgba(0, 87, 102, 0.32);
+    background-color: rgba(216, 216, 216, 0.32);
+    text-align: center;
+    font-family: "Open Sans";
+    font-weight: 600;
+    font-size: 32px;
+    color: #002b32;
+    border-radius: 50%;
+}
+.keyboard-del-button {
+    position: relative;
+    width: 52.5px;
+    height: 34px;
+
+    background-color: rgba(0, 87, 102, 0.32);
+    /* z-index: 3; */
+    align-self: center;
+    justify-self: center;
+    clip-path: polygon(19px 0, 100% 0, 100% 100%, 19px 100%, 0% 50%);
+}
+.keyboard-del-button::after {
+    content: '';
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    width: 50px;
+    height: 32px;
+    
+    background-color: #f2f2f2;
+    clip-path: polygon(18px 0, 100% 0, 100% 100%, 18px 100%, 0% 50%);
+}
+.keyboard-del-button span {
+    position: absolute;
+    top: 10px;
+    font-size: 32px;
+    text-align: center;
+    font-family: "Open Sans";
+    font-weight: 600;
+    color: #002b32;
+    transform: rotate(45deg);
+    z-index: 3;
+}

@@ -1,0 +1,227 @@
+/*LAYOUT*/
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+#main-interface {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    width: 434px;
+}
+#card {
+    width: 100%;
+    height: 236px;
+    margin-bottom: 14px;
+    position: relative;
+
+    -webkit-perspective: 1200px;
+    perspective: 1200px;
+    -moz-transform: perspective(1200px);
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d; 
+    transform-style: preserve-3d;
+}
+.flipper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform .9s ease-in-out;  
+}
+.front, .back {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    /* transition: all .7 ease; */
+}
+.front {
+    background: linear-gradient(180deg, #0a8196 0%, #0a95ad 100%);
+    z-index: 10;
+    transform: rotateY(0deg);
+    /* transition: all .7s ease;  */
+}
+.front::after {
+    content: '';
+    background-color: #01839C;
+    opacity: 0.58;
+    position: absolute;
+    transform: rotate(-27.5deg);
+    height: 100%;
+    width: 120%;
+    bottom: -45%;
+}
+.back {
+    background: linear-gradient(180deg, #50BED1 0%, #25A0B5 98.41%);
+    z-index: 4;
+    transition: transform 0.1ms ease;
+    transform: rotateY(-180deg);
+    /* transform-style: flat; */
+}
+.button-set {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 16px;
+}
+
+
+
+/*MODULES*/
+.control-button {
+    border-radius: 28px;
+    border: 2px solid #005766;
+    padding: 0;
+    color: #005766;
+    text-transform: uppercase;
+    font-weight: bold;
+    height: 40px;
+    width: 100px;
+    text-align: center;
+}
+.control-button a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    line-height: 16px;
+    text-align: center;
+    padding: 12px 0;
+    color: #005766;
+}
+.chip {
+    top: 40px;
+    left: 50px;
+    position: relative;
+    overflow: hidden;
+    width: 39px;
+    height: 39px;
+    border: 1px solid #016C81;
+    border-radius: 6px;
+    background: linear-gradient(180deg, #DCA717 0%, #EFCF0D 100%);
+    box-shadow: 0px 0px 1px 0.5px rgba(0,0,0,0.3);
+}
+.chip-inner {
+    /* content: ''; */
+    position: relative;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    margin-right: 50%;
+    transform: translate(-50%, -50%);
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    background: linear-gradient(180deg, #E9E131 0%, #DEC111 100%);
+}
+.chip-inner::after {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 100%;
+    transform: rotate(-45deg);
+    bottom: -35%;
+    right: -55%;
+    background: #EECA29;
+}
+.chip .part-1,
+.chip .part-2,
+.chip .part-3,
+.chip .part-4 {
+    position: absolute;
+    background: transparent;
+    z-index: 3;
+}
+.chip .part-1 {
+    top: 0;
+    right: 0;
+    border-bottom: 1.29px solid #016c81;
+    border-left: 1.29px solid #016c81;
+    height: 32.63px;
+    width: 27.17px;
+}
+.chip .part-2 {
+    top: 0;
+    right: 0;
+    border-bottom: 1.29px solid #016c81;
+    width: 27.17px;
+    height: 18.11px;
+}
+.chip .part-3 {
+    top: 0;
+    right: 0;
+    border-left: 1.29px solid #016c81;
+    width: 15.53px;
+    height: 18.11px;
+}
+.chip .part-4 {
+    top: 0;
+    left: 0;
+    border-bottom: 1.29px solid #016c81;
+    width: 10.35px;
+    height: 25.87px;
+}
+.card-issuer-logo {
+    position: absolute;
+    top: 21px;
+    right: 21px;
+    max-width: 62px;
+    z-index: 2;
+    transition: all ease 0.2s;
+}
+.magnetic-stripe {
+    position: absolute;
+    top: 41px;
+    width: 100%;
+    height: 42px;
+    background-color: #005766;
+}
+.button-submit {
+    /* padding: 12px 32px; */
+    line-height: 16px;
+}
+.field {
+    z-index: 4;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* right: 99px;
+    bottom: 90px; */
+}
+.number-field {
+    top: 99px;
+
+}
+.cvv-field {
+    right: 99px;
+    bottom: 90px;
+}
+.field > * {
+    display: block;
+}
+.input-cvv {
+    font-size: 20px;
+    width: 50px;
+
+}
+
+/*STATES*/
+.control-button a:visited,
+.control-button a:link {
+    color: #005766;
+} 
+.flipper:target {
+    transform: rotateY(-180deg);
+    transition: transform 0.9s ease;
+}

@@ -1,0 +1,122 @@
+<main>
+    <form [formGroup]="validationForm" id="main-interface">
+
+        <div id="card">
+            <div class="flipper" id="target">
+                <div class="front">
+                    <div class="chip">
+                        <div class="chip-inner">
+                            <div class="part-1"></div>
+                            <div class="part-2"></div>
+                            <div class="part-3"></div>
+                            <div class="part-4"></div>
+                        </div>
+                    </div>
+                    <img *ngIf="issuerType === 'visa'" src="assets/img/visa-logo.svg" alt="card issuer logo" class="card-issuer-logo">
+                    <img *ngIf="issuerType === 'mastercard'" src="assets/img/769px-Mastercard-logo 1.svg" alt="card issuer logo" class="card-issuer-logo">
+
+                    <div class="field number-field">
+                        <!-- <label for="number">
+                          Number
+                        </label> -->
+                        <input id="number" 
+                               type="text" 
+                               formControlName="number" 
+                               maxlength="16" 
+                               autocomplete="none"
+                               (input)="onCCNumberInput()"
+                               required >
+                        <label for="number">
+                            Number
+                        </label> 
+                    </div>
+
+                    <div class="field exp-date-field">
+                        <input id="exp-date" 
+                               type="text" 
+                               formControlName="expirationDate" 
+                               (input)="onExpDateInput()"
+                               required>
+                        <label for="exp-date">
+                            VALID
+                            THRU
+                        </label>
+                        
+                    </div>
+
+                </div>
+                <div class="back">
+                    <div class="magnetic-stripe"></div>
+                    <div class="field cvv-field">
+                        <!-- <input type="password" id="cvv" name="cvv" maxlength="3" class="input-cvv" placeholder="000"> -->
+                        <input id="cvv" 
+                               type="password" 
+                               formControlName="cvv" 
+                               maxlength="3" class="input-cvv" 
+                               placeholder="000" 
+                               (focus)="onCvvFocus()"
+                               (blur)="onCvvBlur()"
+                               required>
+                        <label for="cvv">cvv</label>
+                    </div>
+                </div>
+            </div>        
+        </div>
+
+        <app-keyboard *ngIf="isKeyboardAvailable" class="numpad"></app-keyboard>
+
+        <div class="button-set">
+            <button class="button-back control-button" [hidden]="isBackHidden" (click)="onBackClick()">
+                <a href="#back">back</a>
+            </button>
+            <button class="button-submit control-button" type="submit" [disabled]="!validationForm.valid">
+                submit
+            </button>
+            <button class="button-next control-button"
+                    [hidden]="isNextHidden"
+                    (click)="onNextClick()"
+                    [disabled]="isNextDisabled">
+                <a *ngIf="!isNextDisabled" href="#target">next</a>
+                <span *ngIf="isNextDisabled">next</span>
+            </button>
+        </div>
+    
+    
+    
+    
+    
+        <!-- <p *ngIf="issuerType === 'visa'">Visa</p>
+        <p *ngIf="issuerType === 'mastercard'">Mastercard</p> -->
+    
+        <!-- <div> -->
+            <!-- <label for="number">
+              Number
+            </label> -->
+            <!-- <input id="number" 
+                   type="text" 
+                   formControlName="number" 
+                   maxlength="16" 
+                   autocomplete="none"
+                   (input)="onCCNumberInput()"
+                   required >
+        </div>
+        
+        <div>
+            <label for="exp-date">
+              Expiration date
+            </label>
+            <input id="exp-date" type="text" formControlName="expirationDate" required>
+        </div>
+         -->
+        <!-- <div>
+            <label for="cvv">
+                CVV
+            </label>
+            <input id="cvv" type="password" formControlName="cvv" maxlength="3" required>
+        </div> -->
+    
+        <!-- <button class="button" type="submit" [disabled]="!validationForm.valid">Submit</button>     -->
+    </form>
+    
+</main>
+

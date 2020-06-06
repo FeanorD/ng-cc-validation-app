@@ -1,0 +1,87 @@
+/*BASE*/
+html {
+    box-sizing: border-box;
+    font-size: 14px;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+body {
+    height: 100vh;
+}
+body, p {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+a, a:link, a:hover, a:active, a:visited {
+    text-decoration: none;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+button { 
+    outline: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: Courier;
+}
+label {
+    text-transform: uppercase;
+    color: #d8d8d8;
+    opacity: 0.2;
+    font-size: 12px;
+    font-family: Courier;
+    margin-top: 8px;
+}
+input {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(216,216,216,0.2);
+    /* border-radius: 8px; */
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.32);
+    color: #fff;
+    text-align: center;
+    font-family: Courier;
+    transition: all ease .3s;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px rgba(255, 255, 255, 0)!important;
+}
+main input:-internal-autofill-selected{
+    /* box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px rgba(255, 255, 255, 0)!important; */
+    /* background-color: #a94442!important; */
+    color: #fff!important;
+}
+input:focus {
+    background: transparent;
+    outline: none;
+}
+input::placeholder {
+    color: rgba(255, 255, 255, 0.42);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.32);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus{
+  /* border: ; */
+  -webkit-text-fill-color: #fff;
+  color: #fff!important;
+  -webkit-box-shadow: 0 0 0px 1000px rgba(0,0,0,0) inset;
+  box-shadow: 0 0 0px 1000px rgba(0,0,0,0) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+
+
+.ng-invalid:not(form)  {
+    border-bottom: 2px solid rgba(255,59,48, 0.42); /* red */
+}
+.ng-untouched:not(form) {
+    /* border-bottom: 2px solid #a9a9a9; */
+    border-bottom: 2px solid rgba(216,216,216,0.2);
+}
